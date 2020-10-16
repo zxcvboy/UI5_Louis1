@@ -1,0 +1,10 @@
+/mta_archives/
+/node_modules/
+/resources/
+
+# auto generated wildcard
+UI5_Louis1/LouisApp1/.env1
+# auto generated wildcard
+UI5_Louis1/LouisApp1/.env2
+# auto generated wildcard
+UI5_Louis1/LouisApp1/.env3

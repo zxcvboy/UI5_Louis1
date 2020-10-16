@@ -1,0 +1,81 @@
+_schema-version: "3.2"
+ID: UI5_Louis1
+version: 0.0.1
+modules:
+- name: UI5_Louis1-destination-content
+  type: com.sap.application.content
+  requires:
+  - name: uaa_UI5_Louis1
+    parameters:
+      service-key:
+        name: uaa_UI5_Louis1-key
+  - name: UI5_Louis1_html_repo_host
+    parameters:
+      service-key:
+        name: UI5_Louis1_html_repo_host-key
+  - name: UI5_Louis1-destination-service
+    parameters:
+      content-target: true
+  parameters:
+    content:
+      subaccount:
+        destinations:
+        - Name: UI5_Louis1_UI5_Louis1_html_repo_host
+          ServiceInstanceName: UI5_Louis1-html5-app-host-service
+          ServiceKeyName: UI5_Louis1_html_repo_host-key
+          sap.cloud.service: UI5_Louis1
+        - Authentication: OAuth2UserTokenExchange
+          Name: UI5_Louis1_uaa_UI5_Louis1
+          ServiceInstanceName: UI5_Louis1-xsuaa-service
+          ServiceKeyName: uaa_UI5_Louis1-key
+          sap.cloud.service: UI5_Louis1
+        existing_destinations_policy: update
+  build-parameters:
+    no-source: true
+- name: UI5_Louis1_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: UI5_Louis1_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - LouisApp1-content.zip
+      name: LouisApp1
+      target-path: resources/
+- name: LouisApp1
+  type: html5
+  path: LouisApp1
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+resources:
+- name: UI5_Louis1-destination-service
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: destination
+    service-name: UI5_Louis1-destination-service
+    service-plan: lite
+- name: UI5_Louis1_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: UI5_Louis1-html5-app-host-service
+    service-plan: app-host
+- name: uaa_UI5_Louis1
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: UI5_Louis1-xsuaa-service
+    service-plan: application
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npm install

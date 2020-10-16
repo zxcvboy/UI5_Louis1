@@ -1,0 +1,134 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="z.sap.com.LouisApp1.controller.View1" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                     <Toolbar xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" width="100%" id="toolbar1">
+				        <content>
+				            <Button xmlns="sap.m" text="查詢" id="button0" press="clickHelloFromComponent" type="Accept" icon="sap-icon://search"/>
+				            <ToolbarSeparator id="separator0"/>
+                            <Button xmlns:mvc="sap.ui.core.mvc" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" text="建立" id="Hello" press="onGotoCreate" type="Emphasized" icon="sap-icon://create-form"/>
+				            <ToolbarSeparator id="separator1"/>
+                            <Button xmlns="sap.m" text="刪除" id="button2" type="Reject" press="deleteBook" icon="sap-icon://delete"/>
+				            
+				            
+				            </content>
+				        
+				    </Toolbar>
+					    <sap.ui.layout:HorizontalLayout xmlns:sap.ui.layout="sap.ui.layout" id="layout0" visible="false">
+					        <sap.ui.layout:content>
+					           <Label text="姓名" width="100%" id="label0"/>
+					            <Input xmlns="sap.m" value="{myTestModel>/Name}" id="input0"/>
+					        </sap.ui.layout:content>
+					    </sap.ui.layout:HorizontalLayout>
+					    <sap.ui.layout:Grid xmlns:sap.ui.layout="sap.ui.layout" id="grid0" defaultSpan="XL9 L9 M9 S9">
+					    <sap.ui.layout:content>
+                        <!--
+
+                        
+					        <Table xmlns:sap.ui.layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" noDataText="Drop column list items here and columns in the area above" id="table0" items="{myListModel>/}" growingThreshold="8" growing="true">
+					             <layoutData>
+                                    <sap.ui.layout:GridData spanL="9" spanM="9" spanS="9" spanXL="9"/>
+                                 </layoutData>
+                                <items>
+					                <ColumnListItem type="Active" id="item1_copy_table0_0_table0_0" press="selectCustomer">
+					                    <cells>
+					                        <Text text="{myListModel>title}" id="text3_copy_table0_0_table0_0"/>
+					                        <Text text="{myListModel>stock}" id="text4_copy_table0_0_table0_0"/>
+					                        <Text text="{myListModel>price}" id="text5_copy_table0_0_table0_0"/>
+					                        <Text xmlns="sap.m" text="{myListModel>currency_code}" id="text6_copy_table0_0_table0_0"/>
+					                        </cells>
+					                    
+					                </ColumnListItem>
+					                
+					            </items>
+					            <columns>
+					                <Column id="column0">
+					                    <header>
+					                        <Label text="書名" id="label0_1598198278815"/>
+					                        
+					                    </header>
+					                    
+					                </Column>
+					                <Column id="column1">
+					                    <header>
+					                        <Label text="庫存" id="label1"/>
+					                        
+					                    </header>
+					                    
+					                </Column>
+					                <Column id="column2">
+					                    <header>
+					                        <Label text="價格" id="label2"/>
+					                        
+					                    </header>
+					                    
+					                </Column>
+					                <Column id="column3">
+					                    <header>
+					                        <Text text="幣別" id="text8"/>
+					                        
+					                    </header>
+					                    
+					                </Column>
+					                </columns>
+					            </Table>
+					        -->
+                            <List id="table0" items="{myListModel>/}" growingThreshold="8" growing="true" headerText="Books" mode="SingleSelectLeft">
+                                    <layoutData>
+                                        <sap.ui.layout:GridData spanL="3" spanM="3" spanS="3" spanXL="3"/>
+                                    </layoutData>
+                                    <items>
+                                        <ObjectListItem title="{myListModel>title}" intro="作者: {myListModel>author/firstname} {myListModel&gt;author/lastname}" press="selectCustomer" type="Active"/>
+                                    </items>
+                                </List>
+                                <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form1" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" backgroundDesign="Solid">                               
+                                   <sap.ui.layout.form:content>
+                                    <Label xmlns="sap.m" text="書名"/>
+                                    <Input xmlns="sap.m" value="{myListModel>title}" editable="false"/>		              
+					                <Label xmlns="sap.m" text="庫存"/>
+                                    <Input xmlns="sap.m" value="{myListModel>stock}" type="Number" editable="false"/>						               
+					                <Label xmlns="sap.m" text="價格"/>
+                                    <Input xmlns="sap.m" value="{myListModel>price}" type="Number" editable="false"/>	
+					               <Label xmlns="sap.m" text="幣別"/>
+                                    <Input xmlns="sap.m" value="{myListModel>currency_code}" editable="false"/>	
+                                    <Label xmlns="sap.m" text="描述"/>	
+                                    <TextArea xmlns="sap.m" value="{myListModel>descr}" rows="4" id="area0" editable="false"/>
+                                    <Label xmlns="sap.m" text="author_ID"/>
+                                    <Input xmlns="sap.m" value="{myListModel>author_ID}" editable="false"/>
+                                    <Label xmlns="sap.m" text="genre_ID"/>
+                                    <Input xmlns="sap.m" value="{myListModel>genre_ID}" editable="false"/>	
+                                     <Button xmlns="sap.m" text="儲存" id="button00" press="Create"/>
+					                </sap.ui.layout.form:content>
+					            
+					            </sap.ui.layout.form:SimpleForm>
+                                <!--
+                                    <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" id="form0" editable="true" columnsL="4" columnsM="2" backgroundDesign="Solid">
+                                        <sap.ui.layout.form:content>
+                                            <sap.ui.core:Title text="{myListModel>title} - {myListModel>ID}" id="title0"/>
+                                            <Label xmlns="sap.m" text="描述" id="label5"/>
+                                            <TextArea xmlns="sap.m" value="{myListModel>descr}" rows="4" id="area0"/>
+                                            <Label xmlns="sap.m" text="作者" id="label6"/>
+                                            <Text xmlns="sap.m" text="{myListModel>author/firstname}" id="text9_1598250486747"/>					               
+                                            <Text xmlns="sap.m" text="{myListModel>author/lastname}" id="text10"/>
+                                        
+                                        
+                                            </sap.ui.layout.form:content>
+                                        
+                                    </sap.ui.layout.form:SimpleForm>
+					            -->
+                        </sap.ui.layout:content>
+					    </sap.ui.layout:Grid>
+					   
+					   
+                        
+					</content>
+				<customHeader>
+				   
+				</customHeader>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

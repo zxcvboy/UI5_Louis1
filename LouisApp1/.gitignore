@@ -1,0 +1,12 @@
+/node_modules/
+package-lock.json
+/dist/
+/.vscode/
+/*-content.zip/ 
+
+# auto generated wildcard
+UI5_Louis1/LouisApp1/.env1
+# auto generated wildcard
+UI5_Louis1/LouisApp1/.env2
+# auto generated wildcard
+UI5_Louis1/LouisApp1/.env3
