@@ -30,7 +30,7 @@ sap.ui.define([
             
             
             var myJsonModel = new sap.ui.model.json.JSONModel();
-            var myJsonModel2 = new sap.ui.model.json.JSONModel("model/myData.json");
+            var myJsonModel2 = new sap.ui.model.json.JSONModel("model/myData.json"); 
             var myData = 
                 {
                     "Name":"Louis",
@@ -42,12 +42,34 @@ sap.ui.define([
             myJsonModel.setData(myData);
             this.setModel(myJsonModel,"myTestModel");
              this.setModel(myJsonModel2,"myTestModel2");
+
+             /* Create the model */
+                var oModel = new sap.ui.model.json.JSONModel();
+                /* Assign the model to the view */
+               
+                /* Load the data */
+                oModel.loadData("/services/userapi/currentUser");
+                /* Add a completion handler to log the json and any errors*/
+                oModel.attachRequestCompleted(function onCompleted(oEvent) {
+                    if (oEvent.getParameter("success")) {
+                            this.setData({"json" : this.getJSON(), "status": "Success"}, true);
+                    } else {
+                    var msg = oEvent.getParameter("errorObject").textStatus;
+                    if (msg) {
+                            this.setData("status", msg);
+                    } else {
+                            this.setData("status", "Unknown error retrieving user info");
+                    }
+                    }
+                });
+             /* End model creation and loading*/
         },
         HelloFromComponent:function()
         {
             //window.alert("HelloFromComponent");
            var a = myOperation.getBookList();
             this.getModel("myListModel").setData(a.d.results);
+            var c = myOperation.getPO();
         }
 	});
 });

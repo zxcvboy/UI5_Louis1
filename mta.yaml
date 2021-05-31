@@ -46,9 +46,33 @@ modules:
       - LouisApp1-content.zip
       name: LouisApp1
       target-path: resources/
+    - artifacts:
+      - createPo-content.zip
+      name: createPo
+      target-path: resources/
+    - artifacts:
+      - approvePo-content.zip
+      name: approvePo
+      target-path: resources/
 - name: LouisApp1
   type: html5
   path: LouisApp1
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+- name: createPo
+  type: html5
+  path: createPo
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+- name: approvePo
+  type: html5
+  path: approvePo
   build-parameters:
     builder: custom
     commands:

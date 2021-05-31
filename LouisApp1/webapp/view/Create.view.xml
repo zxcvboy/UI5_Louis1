@@ -17,10 +17,10 @@
                                     <Input xmlns="sap.m" value="{myTestModel3>/currency_code}"/>	
                                     <Label xmlns="sap.m" text="描述"/>	
                                     <TextArea xmlns="sap.m" value="{myTestModel3>/descr}" rows="4" id="area0"/>
-                                    <Label xmlns="sap.m" text="author_ID"/>
-                                    <Input xmlns="sap.m" value="{myTestModel3>/author_ID}" editable="false"/>
-                                    <Label xmlns="sap.m" text="genre_ID"/>
-                                    <Input xmlns="sap.m" value="{myTestModel3>/genre_ID}" editable="false"/>	
+                                    <Label xmlns="sap.m" text="author_ID" visible="false"/>
+                                    <Input xmlns="sap.m" value="{myTestModel3>/author_ID}" editable="false" visible="false"/>
+                                    <Label xmlns="sap.m" text="genre_ID" visible="false"/>
+                                    <Input xmlns="sap.m" value="{myTestModel3>/genre_ID}" editable="false" visible="false"/>	
                                      <Button xmlns="sap.m" text="建立" id="button0" press="Create"/>
 					                </sap.ui.layout.form:content>
 					            

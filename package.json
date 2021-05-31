@@ -9,8 +9,8 @@
     "@sapui5/ts-types": "1.71.x",
     "bestzip": "2.1.4",
     "rimraf": "3.0.2",
-    "@sap/approuter": "8.5.1",
-    "@sap/html5-repo-mock": "1.6.0"
+    "@sap/approuter": "9.0.x",
+    "@sap/html5-repo-mock": "2.0.x"
   },
   "ui5": {
     "dependencies": [

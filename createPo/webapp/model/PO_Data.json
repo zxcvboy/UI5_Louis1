@@ -1,0 +1,39 @@
+{
+    "PO_HEADER": {
+        "PO_NO": "00000006",
+        "FORM_TYPE": "PO",
+        "COMP_CD": "1000",
+        "VENDOR_ID": "SAP_GLOBAL",
+        "VENDOR_NAME": "SAP GLOBAL",
+        "PUR_GRP": "100",
+        "PUR_ORG": "2000",
+        "CURRENCY": "TWD",
+        "REMARK": null
+    },
+    "PO_ITEMS": [
+        {
+            "POITEM_ID": null,
+            "PO_NO": "00000006",
+            "ITEM_NO": "1",
+            "MATERIAL_NO": "TAD772H",
+            "MATERIAL_DESP": "BTP",
+            "QTY": 1.0,
+            "UNIT": "PC",
+            "UNIT_PRICE": 16888.0,
+            "DELIVERY_DATE": null,
+            "FLAG": "S"
+        },
+        {
+            "POITEM_ID": null,
+            "PO_NO": "00000006",
+            "ITEM_NO": "2",
+            "MATERIAL_NO": "GFJ777ajj",
+            "MATERIAL_DESP": "S4HANA",
+            "QTY": 1.0,
+            "UNIT": "PC",
+            "UNIT_PRICE": 88888.0,
+            "DELIVERY_DATE": null,
+            "FLAG": "S"
+        }
+    ]
+}

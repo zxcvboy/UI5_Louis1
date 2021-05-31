@@ -5,10 +5,16 @@
     "logoutEndpoint": "/do/logout"
   },
   "routes": [
+       {
+        "source": "^/PO_SERVICE/(.*)$",
+        "target": "$1",
+        "destination": "DEST_CA_LOUIS1",
+        "authenticationType": "none"
+    },
       {
         "source": "^/OData_bookstore/(.*)$",
         "target": "$1",
-        "destination": "OData_bookstore_wiwynn1_v2",
+        "destination": "OData_bookstore_wiwynn1_v3",
         "authenticationType": "none"
     },
     {
@@ -19,10 +25,17 @@
         "authenticationType": "none"
     },
     {
+      "source":  "^/services/userapi/(.*)$",
+      "target": "$1",
+      "service": "UI5_Louis1-xsuaa-service",
+      "authenticationType": "xsuaa"
+    }
+    ,
+    {
       "source": "^(.*)$",
       "target": "$1",
       "service": "html5-apps-repo-rt",
       "authenticationType": "xsuaa"
-    }
+    }    
   ]
 }

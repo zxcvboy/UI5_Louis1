@@ -6,6 +6,23 @@ sap.ui.define(['sap/m/MessageToast'
     ],function(MessageToast) {
 	"use strict";
 	var MyOperation = {
+        getPO: function(){
+			var rtn={};		
+                // @ts-ignore
+                // eslint-disable-next-line no-undef
+                jQuery.ajax({
+                    type: "get",
+                    async: false,
+                    contentType : "application/json",
+                    url : jQuery.sap.getModulePath("z.sap.com.LouisApp1")+"/PO_SERVICE/rest/PO/getPO_Form?FORM_NO=00000005",
+                    dataType : "json",
+                    cache: false, //預設設定true 不過browser要清cache才可以測
+                    // @ts-ignore           
+                    success : function(data,textStatus, jqXHR) 
+                    {rtn=data;}
+                });
+                return rtn;
+        },
 		getBookList: function(){
 			var rtn={};		
                 // @ts-ignore
@@ -14,7 +31,7 @@ sap.ui.define(['sap/m/MessageToast'
                     type: "get",
                     async: false,
                     contentType : "application/json",
-                    url : "OData_bookstore/v2/odata/v4/BooksService/Books?$expand=author",
+                    url : jQuery.sap.getModulePath("z.sap.com.LouisApp1")+"/OData_bookstore/v2/odata/v4/BooksService/Books?$expand=author",
                     dataType : "json",
                     cache: false, //預設設定true 不過browser要清cache才可以測
                     // @ts-ignore           
@@ -29,7 +46,7 @@ sap.ui.define(['sap/m/MessageToast'
                 // eslint-disable-next-line no-undef                
             jQuery.ajax({
             type: 'POST',
-            url: "OData_bookstore/v2/odata/v4/BooksService/Books",
+            url: jQuery.sap.getModulePath("z.sap.com.LouisApp1")+"/OData_bookstore/v2/odata/v4/BooksService/Books",
             contentType: "application/json",
             data: JSON.stringify(zOrder),
             dataType: "json",
@@ -51,7 +68,7 @@ sap.ui.define(['sap/m/MessageToast'
                 // eslint-disable-next-line no-undef                
             jQuery.ajax({
             type: 'DELETE',
-            url: "OData_bookstore/v2/odata/v4/BooksService/Books("+zOrder.ID+")",
+            url: jQuery.sap.getModulePath("z.sap.com.LouisApp1")+"/OData_bookstore/v2/odata/v4/BooksService/Books("+zOrder.ID+")",
             contentType: "application/json",
             data: JSON.stringify(zOrder),
             dataType: "json",

@@ -1,0 +1,28 @@
+{
+  "welcomeFile": "/index.html",
+  "authenticationMethod": "route",
+  "logout": {
+    "logoutEndpoint": "/do/logout"
+  },
+  "routes": [
+      {
+        "source": "^/PO_SERVICE/(.*)$",
+        "target": "$1",
+        "destination": "DEST_CA_LOUIS1",
+        "authenticationType": "none"
+    },
+    {
+            "source": "^/bpmworkflowruntime/(.*)$",
+            "target": "/$1",
+            "destination": "dest_workflow_runtime2",
+            "authenticationType": "xsuaa",
+            "csrfProtection": false
+    },
+    {
+      "source": "^(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

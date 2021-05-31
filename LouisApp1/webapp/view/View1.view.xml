@@ -80,7 +80,7 @@
                                         <sap.ui.layout:GridData spanL="3" spanM="3" spanS="3" spanXL="3"/>
                                     </layoutData>
                                     <items>
-                                        <ObjectListItem title="{myListModel>title}" intro="作者: {myListModel>author/firstname} {myListModel&gt;author/lastname}" press="selectCustomer" type="Active"/>
+                                        <ObjectListItem title="{myListModel>title}" intro="作者: {myListModel>author/firstname} {myListModel>author/lastname}" press="selectCustomer" type="Active"/>
                                     </items>
                                 </List>
                                 <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.core="sap.ui.core" editable="true" layout="ResponsiveGridLayout" id="form1" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1" singleContainerFullSize="false" backgroundDesign="Solid">                               
@@ -95,11 +95,11 @@
                                     <Input xmlns="sap.m" value="{myListModel>currency_code}" editable="false"/>	
                                     <Label xmlns="sap.m" text="描述"/>	
                                     <TextArea xmlns="sap.m" value="{myListModel>descr}" rows="4" id="area0" editable="false"/>
-                                    <Label xmlns="sap.m" text="author_ID"/>
-                                    <Input xmlns="sap.m" value="{myListModel>author_ID}" editable="false"/>
-                                    <Label xmlns="sap.m" text="genre_ID"/>
-                                    <Input xmlns="sap.m" value="{myListModel>genre_ID}" editable="false"/>	
-                                     <Button xmlns="sap.m" text="儲存" id="button00" press="Create"/>
+                                    <Label xmlns="sap.m" text="author_ID" visible="false"/>
+                                    <Input xmlns="sap.m" value="{myListModel>author_ID}" editable="false" visible="false"/>
+                                    <Label xmlns="sap.m" text="genre_ID" visible="false"/>
+                                    <Input xmlns="sap.m" value="{myListModel>genre_ID}" editable="false" visible="false"/>	
+                                     <Button xmlns="sap.m" text="儲存" id="button00" press="Create" visible="false"/>
 					                </sap.ui.layout.form:content>
 					            
 					            </sap.ui.layout.form:SimpleForm>
@@ -131,4 +131,29 @@
 			</pages>
 		</App>
 	</Shell>
+	<Table noDataText="Drop column list items here and columns in the area above" id="table0_1621492552786">
+	    <items>
+	        <ColumnListItem type="Active" id="item1">
+	            <cells>
+	                <Text text="Row 1 Cell 1" id="text11"/>
+	                <Text text="Row 1 Cell 2" id="text12"/>
+	                <Text text="Row 1 Cell 3" id="text13"/></cells>
+	        </ColumnListItem>
+	    </items>
+	    <columns>
+	        <Column id="column0">
+	            <header>
+	                <Label text="Header 1" id="label7"/>
+	            </header>
+	        </Column>
+	        <Column id="column1">
+	            <header>
+	                <Label text="Header 2" id="label8"/>
+	            </header>
+	        </Column>
+	        <Column id="column2">
+	            <header>
+	                <Label text="Header 3" id="label9"/>
+	            </header>
+	        </Column></columns></Table>
 </mvc:View>

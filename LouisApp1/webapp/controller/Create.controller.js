@@ -28,6 +28,13 @@ sap.ui.define([
                 };
                 // @ts-ignore
                 myData = this.getView().getModel("myTestModel3").getData();
+                if(myData.stock!=undefined)
+                {
+                    if(typeof(myData.stock)==="string")
+                    {
+                        myData.stock = parseInt(myData.stock);
+                    }
+                }
                 myOperation.CreateOrder(myData);
                  // @ts-ignore
                this.getOwnerComponent().HelloFromComponent();

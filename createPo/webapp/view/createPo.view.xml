@@ -1,0 +1,193 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="z.sap.com.createPo.controller.createPo" displayBlock="true">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                        <VBox width="100%" direction="Column" id="vbox0" alignItems="Center">
+	
+                            <items>
+                            <sap.ui.layout.form:SimpleForm xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" layout="ResponsiveGridLayout" id="form0" singleContainerFullSize="false">
+                            
+                                <sap.ui.layout.form:content>
+
+                                    <Label text="表單編號"/>
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/FORM_TYPE}" enabled="true"/>	
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/PO_NO}" enabled="true"/>
+                                    <Label text="公司碼"/>	
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/COMP_CD}" enabled="true"/>
+                                    <Label text="採購組織"/>
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/PUR_ORG}" enabled="true"/>
+                                    <Label text="採購群組"/>
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/PUR_GRP}" enabled="true"/>
+                                    <Label text="供應商"/>
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/VENDOR_ID}" enabled="true"/>
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/VENDOR_NAME}" enabled="true"/>
+                                    <Label text="幣別"/>
+                                    <Input width="100%" value="{myPoModel>/PO_HEADER/CURRENCY}" enabled="true"/>
+                                    <Label text="備註"/>
+                                    <TextArea width="100%" value="{myPoModel>/PO_HEADER/REMARK}" enabled="true" rows="4"/>
+                                </sap.ui.layout.form:content>
+                            
+                            <sap.ui.layout.form:title>
+                            
+                                <core:Title text="表頭資料" id="title6" emphasized="true"/>
+                            
+                            </sap.ui.layout.form:title>
+                            
+                            </sap.ui.layout.form:SimpleForm>
+                                    <Table xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.uxap" xmlns="sap.m" noDataText="Drop column list items here and columns in the area above" id="table0_copy" items="{myPoModel>/PO_ITEMS}" headerText="表身資料">
+                        
+                                    <items>
+                        
+                                        <ColumnListItem type="Active" id="item0_copy_table0_copy_0_copy_table0_copy_0">
+                        
+                                            <cells>
+                        
+                                                <Input value="{myPoModel>ITEM_NO}"/>
+                        
+                                                <Input value="{myPoModel>MATERIAL_NO}"/>
+                        
+                                                <Input value="{myPoModel>MATERIAL_DESP}"/>
+                        
+                                                <Input value="{myPoModel>QTY}"/>
+                        
+                                                <Input value="{myPoModel>UNIT}"/>
+                        
+                                                <Input value="{myPoModel>UNIT_PRICE}"/>
+                        
+                                                <DateTimePicker value="{myPoModel>DELIVERY_DATE}"/>
+                                                <!--
+                                                <Text text="{path:'myPoModel>DELIVERY_DATE',formatter:'.formatter.formatDate'}" />
+                                                -->
+
+                                                </cells>
+                        
+                                            
+                        
+                                        </ColumnListItem>
+                        
+                                        
+                        
+                                    </items>
+                        
+                                    <columns>
+                        
+                                        <Column id="column_ITEM_NO_copy">
+                        
+                                            <header>
+                        
+                                                <Label text="項次" id="label_ITEM_NO_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        <Column id="column_MATERIAL_NO_copy" visible="{device>/system/desktop}">
+                        
+                                            <header>
+                        
+                                                <Label text="料號" id="label_MATERIAL_NO_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        <Column id="column_MATERIAL_DESP_copy">
+                        
+                                            <header>
+                        
+                                                <Label text="名稱" id="label_MATERIAL_DESP_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        <Column id="column_QTY_copy">
+                        
+                                            <header>
+                        
+                                                <Label text="數量" id="label_QTY_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        <Column id="column_UNIT_copy" visible="{device>/system/desktop}">
+                        
+                                            <header>
+                        
+                                                <Label text="單位" id="label_UNIT_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        <Column id="column_UNIT_PRICE_copy">
+                        
+                                            <header>
+                        
+                                                <Label text="單價" id="label_UNIT_PRICE_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        <Column id="column_DELIVERY_DATE_copy" visible="{device>/system/desktop}">
+                        
+                                            <header>
+                        
+                                                <Label text="交付日期" id="label_DELIVERY_DATE_copy"/>
+                        
+                                                
+                        
+                                            </header>
+                        
+                                            
+                        
+                                        </Column>
+                        
+                                        </columns>
+                        
+                                    </Table>
+                        
+                            </items>
+                        
+                        </VBox>
+                    </content>
+				<footer>
+				    <Bar id="bar8">
+				    <contentLeft>
+				        <Button xmlns="sap.m" text="送出" id="button0" icon="sap-icon://accept" type="Emphasized" press = "onCreatePO"/>
+				    </contentLeft>
+				    </Bar>
+				</footer>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

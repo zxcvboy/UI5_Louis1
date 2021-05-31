@@ -1,0 +1,128 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "z.sap.com.createPo",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "html5moduletemplates.basicSAPUI5ApplicationProjectModule",
+			"version": "1.40.12"
+        },
+         "dataSources": {
+            "PoData_alias": {
+				"uri": "model/PO_Data.json",
+				"type": "JSON"
+			}
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "intent1": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "PurchaseOrder",
+                    "action": "Create",
+                    "title": "Create Purchease Order",
+                    "info": "(DEMO) Purchase Order",
+                    "subTitle": "Create",
+                    "icon": "sap-icon://account"
+                    }
+                }
+            }
+	},
+	
+	"sap.cloud": {
+		"public": true,
+		"service": "UI5_Louis1"
+	},
+	
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "z.sap.com.createPo.view.createPo",
+			"type": "XML",
+			"async": true,
+			"id": "createPo"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "z.sap.com.createPo.i18n.i18n"
+				}
+            },
+            "myPoModel": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"dataSource": "PoData_alias"
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "z.sap.com.createPo.view",
+				"controlAggregation": "pages",
+				"controlId": "app",
+				"clearControlAggregation": false
+			},
+			"routes": [{
+				"name": "RoutecreatePo",
+				"pattern": "RoutecreatePo",
+				"target": ["TargetcreatePo"]
+			}],
+			"targets": {
+				"TargetcreatePo": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearControlAggregation": false,
+					"viewId": "createPo",
+					"viewName": "createPo"
+				}
+			}
+		}
+	}
+}
