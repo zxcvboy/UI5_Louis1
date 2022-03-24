@@ -54,6 +54,10 @@ modules:
       - approvePo-content.zip
       name: approvePo
       target-path: resources/
+    - artifacts:
+      - GitTest-content.zip
+      name: GitTest
+      target-path: resources/
 - name: LouisApp1
   type: html5
   path: LouisApp1
@@ -73,6 +77,14 @@ modules:
 - name: approvePo
   type: html5
   path: approvePo
+  build-parameters:
+    builder: custom
+    commands:
+    - npm run build
+    supported-platforms: []
+- name: GitTest
+  type: html5
+  path: GitTest
   build-parameters:
     builder: custom
     commands:
